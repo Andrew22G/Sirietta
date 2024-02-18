@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AmoreCasuale.com - Generatore di Frasi d'Amore Casuali per Siria</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #fff; /* Colore di sfondo bianco */
+            overflow: hidden; /* Nasconde i cuoricini che si muovono oltre i bordi del body */
+        }
+        h1 {
+            color: #ff3366;
+        }
+        #randomLovePhrase {
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+        button {
+            background-color: #ff3366;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #e6005c;
+        }
+        /* Animazione cuoricini */
+        .cuore {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: pink;
+            border-radius: 50%;
+            animation: muoviCuore linear infinite;
+            pointer-events: none; /* Evita che i cuoricini interferiscano con gli elementi cliccabili */
+        }
+        @keyframes muoviCuore {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            100% {
+                transform: translate(-100vw, 100vh) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Aggiunta di cuoricini animati come sfondo -->
+    <div id="sfondoCuoricini">
+        <!-- Genera 50 cuoricini casuali -->
+        <script>
+            for (let i = 0; i < 50; i++) {
+                creaCuoreCasuale();
+            }
+
+            // Funzione per creare un cuore casuale con posizione e dimensioni casuali
+            function creaCuoreCasuale() {
+                var cuore = document.createElement('div');
+                cuore.classList.add('cuore');
+                cuore.style.left = Math.random() * window.innerWidth + 'px';
+                cuore.style.top = Math.random() * window.innerHeight + 'px';
+                cuore.style.animationDuration = Math.random() * 3 + 2 + 's'; // Durata animazione casuale
+                document.getElementById('sfondoCuoricini').appendChild(cuore);
+            }
+        </script>
+    </div>
+
+    <h1>AmoreCasuale.com</h1>
+    <h2>Genera Frasi d'Amore Casuali per Siria</h2>
+    <p>Benvenuto su AmoreCasuale.com, il sito che ti aiuta a esprimere il tuo amore per Siria con dolci parole casuali!</p>
+    <p>Clicca sul pulsante "Genera" e ti amo Sirietta.</p>
+    <div id="randomLovePhrase"></div>
+    <button onclick="generaFrase()">Genera</button>
+
+    <script>
+        var frasiAmore = [
+            "Siria, sei il mio raggio di sole in ogni giorno grigio, la luce che illumina il mio cammino.",
+            "Il tuo sorriso, Siria, è il mio più grande tesoro, la tua felicità è la mia priorità.",
+            "In ogni battito del mio cuore, Siria, ci sei tu. Sei la mia costante, il mio amore eterno.",
+            "Amarti, Siria, è come respirare, non posso smettere e non voglio smettere mai.",
+            "Nel labirinto della vita, Siria, tu sei il mio punto di riferimento, la mia bussola.",
+            "Con te, Siria, ogni momento è magico, perché sei la mia favola più bella.",
+            "Il mio amore per te, Siria, cresce ogni giorno di più, come un fiore che sboccia al primo sole.",
+            "Siria, sei la mia ispirazione quotidiana, il motivo per cui sorrido ogni mattina.",
+            "I nostri cuori, Siria, battono all'unisono, come se fossimo destinati l'uno per l'altro.",
+            "Quando mi perdo nei tuoi occhi, Siria, trovo la pace e la felicità che tanto desidero.",
+            "Il tuo amore, Siria, è la mia forza, mi sostiene in ogni sfida e mi spinge a dare sempre il meglio.",
+            "Anche nel silenzio, il tuo amore, Siria, parla al mio cuore più forte di qualsiasi parola."
+        ];
+
+        function generaFrase() {
+            var randomIndex = Math.floor(Math.random() * frasiAmore.length);
+            var fraseCasuale = frasiAmore[randomIndex];
+            document.getElementById("randomLovePhrase").innerText = fraseCasuale;
+        }
+    </script>
+</body>
+</html>
